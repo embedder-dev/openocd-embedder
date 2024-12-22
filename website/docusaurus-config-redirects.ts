@@ -25,7 +25,7 @@ export const redirects = {
     //     to: '/docs/newDoc2',
     //     from: ['/docs/oldDocFrom2019', '/docs/legacyDocFrom2016'],
     //   },
-    
+
     {
       from: '/docs/developer-info',
       to: '/docs/developer',
@@ -37,7 +37,19 @@ export const redirects = {
     {
       from: '/docs/user-info',
       to: '/docs/user',
-    }
+    },
+    {
+      from: '/blog/2020/06/24/openocd-v0-10-0-14-released/',
+      to: '/blog/2020/06/26/openocd-v0-10-0-14-released/',
+    },
+    {
+      from: '/blog/2017/04/19/openocd-v0-10-0-20170418-released/',
+      to: '/blog/2017/04/18/openocd-v0-10-0-20170418-released/',
+    },
+    {
+      from: '/blog/2018/05/13/openocd-v0-10-0-8-20180512-released/',
+      to: '/blog/2018/05/12/openocd-v0-10-0-8-20180512-released/',
+    },
   ],
   createRedirects(existingPath) {
     console.log(existingPath);
@@ -56,7 +68,7 @@ export const redirects = {
     //   }
     //   return undefined; // Return a falsy value: no redirect created
     //   },
-    
+
     if (existingPath.includes('/user-info')) {
       return [
         existingPath.replace('/user-info', '/user')
