@@ -56,7 +56,16 @@
       "last 5 safari version"
     ]
   },
-  "websiteConfig": {},
+  "websiteConfig": {
+    "customFields": {
+      "programName": "openocd",
+      "branding": "xPack Open On-Chip Debugger ",
+      "$link": "https://github.com/openocd-org/openocd.git",
+      "openocdCommitId": "dd175827",
+      "openocdCommitDate": "1 Apr 2024",
+      "showDeprecatedGnuMcuAnalytics": "true"
+    }
+  },
   "engines": {
     "node": ">=18.0"
   }
