@@ -57,14 +57,12 @@
     ]
   },
   "websiteConfig": {
-    "customFields": {
-      "programName": "openocd",
-      "branding": "xPack Open On-Chip Debugger ",
-      "$link": "https://github.com/openocd-org/openocd.git",
-      "openocdCommitId": "dd175827",
-      "openocdCommitDate": "1 Apr 2024",
-      "showDeprecatedGnuMcuAnalytics": "true"
-    }
+    "programName": "openocd",
+    "branding": "xPack Open On-Chip Debugger ",
+    "showDeprecatedGnuMcuAnalytics": "true",
+    "$link": "https://github.com/openocd-org/openocd.git",
+    "openocdCommitId": "dd175827",
+    "openocdCommitDate": "1 Apr 2024"
   },
   "engines": {
     "node": ">=18.0"
