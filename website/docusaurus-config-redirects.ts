@@ -39,6 +39,10 @@ export const redirects = {
       to: '/docs/user',
     },
     {
+      from: '/docs/about',
+      to: '/docs/project/about',
+    },
+    {
       from: '/blog/2020/06/24/openocd-v0-10-0-14-released/',
       to: '/blog/2020/06/26/openocd-v0-10-0-14-released/',
     },
@@ -82,5 +86,5 @@ export const redirects = {
         existingPath.replace('/maintainer-info', '/maintainer')
       ];
     }
-}
+  }
 }
