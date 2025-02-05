@@ -241,6 +241,7 @@ function openocd_build()
             config_options+=("--enable-amtjtagaccel")
             config_options+=("--enable-buspirate")
             config_options+=("--enable-gw16012")
+            config_options+=("--enable-linuxspidev")
             config_options+=("--enable-parport")
             # cannot be used by x86_64-pc-linux-gnu hosts
             # config_options+=("--enable-parport-giveio")
