@@ -151,6 +151,10 @@ function openocd_build()
             config_options+=("--disable-silent-rules") # HB
           fi
 
+          # The internal jimtcl is now deprecated.
+          # https://github.com/openocd-org/openocd/commit/77c904fd13c08077cafd0845107506db408b5bb1
+          config_options+=("--enable-internal-jimtcl")
+
           # The internal libjaylink is now deprecated.
           # https://github.com/openocd-org/openocd/commit/8bb926eb01022998ceefe666f8df102e59404015
           config_options+=("--enable-internal-libjaylink")
@@ -211,7 +215,8 @@ function openocd_build()
             config_options+=("--enable-amtjtagaccel")
             config_options+=("--enable-gw16012")
             config_options+=("--enable-parport")
-            config_options+=("--enable-parport-giveio")
+            # cannot be used by x86_64-pc-linux-gnu hosts
+            # config_options+=("--enable-parport-giveio")
 
             # --enable-sysfsgpio -> available only on Linux
             config_options+=("--disable-sysfsgpio")
@@ -234,7 +239,8 @@ function openocd_build()
             config_options+=("--enable-buspirate")
             config_options+=("--enable-gw16012")
             config_options+=("--enable-parport")
-            config_options+=("--enable-parport-giveio")
+            # cannot be used by x86_64-pc-linux-gnu hosts
+            # config_options+=("--enable-parport-giveio")
             config_options+=("--enable-sysfsgpio")
 
             # Deprecated
