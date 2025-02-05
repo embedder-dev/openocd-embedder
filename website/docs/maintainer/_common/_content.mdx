@@ -8,6 +8,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 import customField from '@site/src/libs/customField';
 import isXpackSubversionDouble from '@site/src/libs/isXpackSubversionDouble';
+import dateYYYYMMDD from '@site/src/libs/dateYYYYMMDD';
 
 import ReleaseSchedule from '../../_shared/_release-schedule.mdx';
 import GitHubActionsDurations from '../../_shared/_github-actions-durations.mdx';
@@ -573,8 +574,11 @@ rm -rf ~/Work/xpack-dev-tools/*/build-assets/build
 
 ### Commit and push
 
-- commit with the message **re-generate workflows**
 - push the `xpack-development` branch to GitHub
+
+### Check if the helper is pushed and published
+
+The helper `xpack` branch must be updated and the npm package published.
 
 <FirstProductionRun/>
 
@@ -871,7 +875,7 @@ npm run build -C website
   :::info
   At this moment an automated GitHub Action will generate and publish the website.
   :::
-- add a new tag like `web-YYYYMMDD`
+- add a new tag like <code>web-{dateYYYYMMDD()}</code>
 - the new release blog post is
 in https://xpack-dev-tools.github.io/openocd-xpack/blog/
 - remember the post URL, since it must be used to update the release page
