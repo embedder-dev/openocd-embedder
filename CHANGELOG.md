@@ -4,8 +4,10 @@ Entries in this file are in reverse chronological order.
 
 ## 2025-02-05
 
-* v0.12.0-5 released
-* 3c2ca54 website: re-generate commons
+* v0.12.0-5.1 published on npmjs.com
+* 9734805 package.json: update urls for 0.12.0-5.1 release
+* 540168b website: blog post release 0.12.0-5 published
+* e3154a6 CHANGELOG update* 3c2ca54 website: re-generate commons
 * c15ddd6 website: update actions durations
 * 10e9ced website: update development durations
 * 3ca3724 openocd.sh: --enable-xlnx-pcie-xvc only for linux
