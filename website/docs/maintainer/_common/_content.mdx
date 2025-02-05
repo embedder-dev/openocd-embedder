@@ -156,17 +156,30 @@ is <code>0.12.0-5</code>.
 
 - update the release specific properties (if any)
 
-### Update the top commons
+### Generate the top commons
 
-Run the `generate-top-commons` npm script from the top `package.json`.
+Run the top **generate-top-commons** npm script to update the
+`build-assets/package.json` and the GitHub workflow files.
+
+```sh
+npm run generate-top-commons -C ~/Work/xpack-dev-tools/openocd-xpack.git
+```
+
+### Commit the top changes
+
+Commit with the message _**re-generate top commons**_.
 
 ### Update the website commons
 
-Run the `generate-website-commons` npm script from `website`.
+Run the **generate-website-commons** npm script from `website/package.json`.
+
+### Commit the website changes
+
+Commit with the message _**website: re-generate commons**_.
 
 ### Start the local web server
 
-Execute the npm script `clean` then `start` in the website sub-project,
+Execute the npm script **clean** then **start** in the website sub-project,
 or run the following in a terminal:
 
 ```sh
@@ -416,8 +429,8 @@ In some cases it is necessary to run a debug session with the binaries.
 
 For these cases, the build script accepts the `--debug` options.
 
-There are also xpm actions that use this option (`build-development-debug`
-and `docker-build-development-debug`).
+There are also xpm actions that use this option (**build-development-debug**
+and **docker-build-development-debug**).
 
 ### Files cache
 
@@ -514,19 +527,6 @@ Publish a new release of the helper on **npmjs**.
 
 In `templates/_xpack-dev-tools/build-assets/package-merge-liquid.json`, update the reference
 to `"@xpack-dev-tools/xbb-helper":`.
-
-### Generate the top commons
-
-Run the top **generate-top-commons** npm script to update the
-`build-assets/package.json` and the GitHub workflow files.
-
-```sh
-npm run generate-top-commons -C ~/Work/xpack-dev-tools/openocd-xpack.git
-```
-
-### Commit the changes
-
-Commit with the message _**re-generate top commons**_.
 
 ### Check for disk space
 
