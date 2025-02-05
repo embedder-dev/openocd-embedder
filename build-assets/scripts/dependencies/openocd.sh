@@ -191,7 +191,6 @@ function openocd_build()
           config_options+=("--enable-usbprog")
           config_options+=("--enable-vsllink")
           config_options+=("--enable-xds110")
-          config_options+=("--enable-xlnx-pcie-xvc")
 
           # Disable drivers that apparently failed to build on all platforms.
           config_options+=("--disable-zy1000-master")
@@ -246,6 +245,7 @@ function openocd_build()
             # cannot be used by x86_64-pc-linux-gnu hosts
             # config_options+=("--enable-parport-giveio")
             config_options+=("--enable-sysfsgpio")
+            config_options+=("--enable-xlnx-pcie-xvc")
 
             # Deprecated
             # config_options+=("--enable-oocd_trace")
