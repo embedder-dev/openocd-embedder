@@ -4,7 +4,17 @@ Entries in this file are in reverse chronological order.
 
 ## 2025-02-05
 
-* v0.12.0-5 prepared
+* v0.12.0-5 released
+* 3c2ca54 website: re-generate commons
+* c15ddd6 website: update actions durations
+* 10e9ced website: update development durations
+* 3ca3724 openocd.sh: --enable-xlnx-pcie-xvc only for linux
+* 8477dfb openocd.sh: --enable-linuxspidev
+* 3dac15f openocd.sh: --enable-xlnx-pcie-xvc
+* 49fbab3 openocd.sh: jimtcl & libjaylink links
+* 60cf590 openocd.sh: add --enable-internal-jimtcl
+* ebdf2f3 build-assets/package-lock.json update
+* d6e282b prepare v0.12.0-5
 * 8576319 website: fix blog posts --verbose
 
 ## 2025-02-04
