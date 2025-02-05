@@ -17,7 +17,7 @@ For information on how to install and use this project, please refer to the
 ## Project source
 
 The source code of the current release is available on
-[GitHub tag v0.12.0-4.1 tree](https://github.com/xpack-dev-tools/openocd-xpack/tree/v0.12.0-4.1).
+[GitHub tag v0.12.0-5.1 tree](https://github.com/xpack-dev-tools/openocd-xpack/tree/v0.12.0-5.1).
 
 ## License
 

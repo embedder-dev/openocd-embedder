@@ -2,9 +2,302 @@
 
 Entries in this file are in reverse chronological order.
 
+## 2025-02-05
+
+* v0.12.0-5 prepared
+* 8576319 website: fix blog posts --verbose
+
+## 2025-02-04
+
+* 2d1b8d0 website: re-generate commons
+* 6659155 build-assets: update generate-website-blog-post
+
+## 2025-02-03
+
+* d3afb0e build-assets: bump deps
+* 44936b1 website: re-generate commons
+* ed10b2b website: re-generate commons
+* d27baed website: fix blog release
+
+## 2025-02-02
+
+* 0676583 website: re-generate commons
+
+## 2025-01-31
+
+* 84f0366 website: updates and final common rework
+
+## 2025-01-30
+
+* cbb1d86 website: rework getting-started
+* 3127a80 website: more rework with commons
+
+## 2025-01-29
+
+* e7e516c website: more rework with commons
+
+## 2025-01-27
+
+* bcf63f4 website: cosmetise imports
+
+## 2025-01-26
+
+* 02ece27 website: rework with _project
+
+## 2025-01-23
+
+* c212751 website: re-generate commons
+
+## 2025-01-22
+
+* 873119a website: re-generate commons
+
+## 2025-01-21
+
+* 92f0d9a build-assets: cleanup actions
+* 0cbdf0c website: re-generate commons
+* 6f3f423 website: re-generate commons
+* 704ef60 website: re-generate commons
+
+## 2025-01-20
+
+* d7ced63 re-generate commons
+* 486b06d website: re-generate commons
+
+## 2025-01-19
+
+* 1efe759 website: remove unused customField.js
+* a44f5b9 build-assets: move customFields to websiteConfig
+* ab24119 website: re-generate commons
+
+## 2025-01-17
+
+* 4223395 website: re-generate commons
+* 755b78a re-generate commons
+* 5b51271 website: re-generate commons
+
+## 2025-01-16
+
+* b98d3c1 website: re-generate commons
+* e81029c re-generate commons
+
+## 2025-01-15
+
+* 4b89234 website: updates
+* 487c3f9 re-generate commons
+
+## 2025-01-14
+
+* 9cad2cc re-generate commons
+* 6d80815 re-generate commons
+
+## 2025-01-13
+
+* 9a57568 re-generate workflows
+* 2bce7f7 copyright updates
+* 3d4b004 copyright updates
+
+## 2025-01-10
+
+* c3855d0 website: updates
+* 48a7b1d website: updates
+* 62f6d55 website: updates
+
+## 2025-01-09
+
+* 58694db build-assets/package.json: bump deps
+* c31f325 website: updates
+
+## 2025-01-02
+
+* 51b6400 package.json: cosmetics
+* 252f9a4 website: updates
+* aac1eca build-assets/package.json: bump deps
+
+## 2024-12-31
+
+* 0fde88c website: updates
+
+## 2024-12-30
+
+* 32b3c3f package.json: bump deps
+* 8ee2e36 website: updates
+
+## 2024-12-24
+
+* 106d36d website: updates
+* abc66c4 website: updates
+
+## 2024-12-22
+
+* bbeb662 website: update redirects
+* 14098a1 website: updates
+* f6d8cd4 website: add _xpack.github.io
+
+## 2024-12-20
+
+* e5f6326 website: updates
+* 2a4504d website: updates
+* 29f5a1e website: updates
+
+## 2024-12-11
+
+* a9f77f2 website: updates
+* 62a8089 website/blog updates
+* 370d7df website/blog/_templates/blog-post-release*
+* 6b98807 build-assets/package.json: bump deps
+
+## 2024-12-04
+
+* d9b6e44 website: updates
+
+## 2024-10-15
+
+* c7ef2da website: updates
+* d2d9290 website: updates
+
+## 2024-10-14
+
+* 84c814f website: updates
+
+## 2024-10-13
+
+* 19a6554 website: updates
+* 4e6f714 website: updates
+* 3189926 website: updates
+
+## 2024-10-11
+
+* cf278e5 website: updates
+* 75827ce website/blog/_templates/blog-post-release*
+* 461fc80 website/blog/_templates/blog-post-release*
+
+## 2024-10-10
+
+* eb4d2ba website: updates
+* 5c83648 website: updates
+
+## 2024-10-09
+
+* 9890478 website move blog post templates
+* 0aeec12 website: updates
+* b4f636c website: updates
+
+## 2024-10-07
+
+* d550ad4 website: updates
+* fc02fd1 website: updates
+
+## 2024-10-06
+
+* 0bb61a0 website: updates
+* 83ab2a5 website: updates
+* c15062e re-generate workflows
+
+## 2024-10-04
+
+* bda9b41 website: updates
+* 20881d3 build-assets/package-lock.json update
+* a67b021 templates/body-blog update
+
+## 2024-09-18
+
+* 5c089d4 website: updates
+* 2572e48 website update
+* e0ebd81 build-assets/package.json update customFields
+* 878ea6f build-assets/templates updates
+
+## 2024-09-13
+
+* 74c270c website re-generate commons
+
+## 2024-09-12
+
+* 9d7c201 update scripts copyright notices
+* 151a47a website update
+
+## 2024-08-17
+
+* 8cea582 website updates
+* 8c497ac build-assets/package.json updates
+* ce172b6 templates updates
+* fc20929 re-generate workflows
+
+## 2024-08-16
+
+* 80d4674 templates/body-github: update
+* 02a676a website: re-generate workflows
+* 0a3b6cd re-generate workflows
+* d25bc63 build-assets/package.json: fix syntax
+* b337fa6 build-assets/package.json: bump deps
+* 2a0c750 templates update
+* bc29c54 website: re-generate commons
+
+## 2024-08-14
+
+* 68e5eb5 build-assets/package.json: updates
+
+## 2024-08-10
+
+* f4a05dd website: re-generate commons
+* eb1f1dd website: re-generate commons
+* b82c685 website: re-generate commons
+* 821ce30 website: rework install quick tests
+
+## 2024-08-09
+
+* 283a223 website update
+* 83909a2 package.json: git+https
+* 8c47075 build-assets/package.json: bump deps
+* 0f81ddf template/body-blog update
+* a2023cc re-generate workflows
+
+## 2024-08-07
+
+* 90fc8b0 website: re-generate commons
+* 7000e67 build-assets/package.json updates
+* b915586 website: update
+* 99b363d website: re-generate commons
+* d82e679 templates/body-blog-* update
+* 42f82ed website: re-generate commons
+* 5a55340 website: re-generate commons
+* 0b1d29a build-assets/package.json: updates
+* 5aa36f4 website: preliminary content
+* c8a56b4 build-assets/package.json updates
+
+## 2024-08-04
+
+* 0a7df44 Merge commit '37577eeab78b5e5820153bf0386cd54750af5ff9' into xpack-development
+* 37577ee website: re-generate commons
+* bf9b88f website: developer-info updates
+* 612cc7f build-assets/package.json update
+* 072e552 website: re-generate commons
+
 ## 2024-08-03
 
-* v0.12.0-4 published on npmjs.com
+* 8fd54af website: developer-info update
+* 92ca8ba website: developer-info durations.mdx update
+* d85cdde website: re-generate commons
+* 91bf69a website: re-generate common
+* 2981d47 website: add _common defs
+* 06dcb58 website: remove work in progress
+* bf6a3df website: re-generate commons config
+* 51fd337 website maintainer-info update
+* 76db56b website: update blog post
+* c3274f0 templates/body-blog* use imports
+* 850df60 website: duplicate text fixed
+* 0cd7030 website: getting-started documentation update
+* 6d95009 blog updates following Tommy's feedback
+* c3cfd8e templates/body-blog* updates
+* f7e64fa fix 'RedHat 8 or later'
+* 7328638 website: update maintainer & user info
+* ac6f07b build-assets/package.json: add showGnuMcuAnalytics
+* 6b323ea website: maintainer-info update
+* b40fb48 website: blog posts are back to .mdx
+* 259350a website: maintainer-info update
+* 084726b 0.12.0-4.1
+* 281f108 website: maintainer-info update
+* bcbdbbd CHANGELOG: publish npm v0.12.0-4.1
 * ae17d43 package.json: update urls for 0.12.0-4.1 release
 * 4b0479b website: maintainer-info update
 * 6db2458 website: add blog release

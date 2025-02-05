@@ -70,8 +70,8 @@
     "branding": "xPack Open On-Chip Debugger ",
     "showDeprecatedGnuMcuAnalytics": "true",
     "$link": "https://github.com/openocd-org/openocd.git",
-    "openocdCommitId": "dd175827",
-    "openocdCommitDate": "1 Apr 2024"
+    "openocdCommitId": "eb6f2745b7d9924d0dddeab91c1743867c4e812c",
+    "openocdCommitDate": "31 Jan 2025"
   },
   "engines": {
     "node": ">=18.0"
