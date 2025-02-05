@@ -153,10 +153,12 @@ function openocd_build()
 
           # The internal jimtcl is now deprecated.
           # https://github.com/openocd-org/openocd/commit/77c904fd13c08077cafd0845107506db408b5bb1
+          # https://jim.tcl.tk/
           config_options+=("--enable-internal-jimtcl")
 
           # The internal libjaylink is now deprecated.
           # https://github.com/openocd-org/openocd/commit/8bb926eb01022998ceefe666f8df102e59404015
+          # https://gitlab.archlinux.org/archlinux/packaging/packages/libjaylink/-/blob/main/PKGBUILD
           config_options+=("--enable-internal-libjaylink")
 
           # Add explicit functionality.
