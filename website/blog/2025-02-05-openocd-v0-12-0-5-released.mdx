@@ -31,6 +31,8 @@ download_url: https://github.com/xpack-dev-tools/openocd-xpack/releases/tag/v0.1
 import {PageMetadata} from '@docusaurus/theme-common';
 import Image from '@theme/IdealImage';
 import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 import Prerequisites from './_common/_prerequisites-glib-2.27.mdx';
 import DeprecationNotices from './_common/_deprecation-notices-glib-2.27.mdx';
@@ -178,6 +180,95 @@ xpack-openocd-0.12.0-5-linux-x64.tar.gz
 xpack-openocd-0.12.0-5-win32-x64.zip
 
 ```
+
+## Folders hierarchy
+
+After install, the package creates a hierarchy of folders like the following
+(only the first two depth levels are shown):
+
+<Tabs groupId="operating-systems">
+
+<TabItem value="windows" label="Windows" default>
+
+<CodeBlock language="console"> {
+`C:\> tree /f %USERPROFILE%\\AppData\\Roaming\\xPacks\\@xpack-dev-tools\\openocd\\${frontMatter.version}.${frontMatter.npm_subversion}\\.content
+Folder PATH listing
+Volume serial number is B02D-925C
+├── README.md
+├── bin
+│   ├── libftdi1.dll
+│   ├── libusb-1.0.dll
+│   └── openocd.exe
+├── distro-info
+│   └── licenses
+└── openocd
+    ├── OpenULINK
+    ├── angie
+    ├── contrib
+    └── scripts
+
+8 directories, 4 files
+`} </CodeBlock>
+
+</TabItem>
+
+<TabItem value="macos" label="macOS">
+
+<CodeBlock language="console"> {
+`$ tree -L 2 ~/Library/xPacks/xpack-dev-tools/openocd/${frontMatter.version}.${frontMatter.npm_subversion}/.content/
+/Users/ilg/Library/xPacks/xpack-dev-tools/openocd/${frontMatter.version}.${frontMatter.npm_subversion}/.content/
+├── README.md
+├── bin
+│   └── openocd
+├── distro-info
+│   └── licenses
+├── libexec
+│   ├── libftdi1.2.5.0.dylib
+│   ├── libftdi1.2.dylib -> libftdi1.2.5.0.dylib
+│   ├── libhidapi.0.14.0.dylib
+│   └── libusb-1.0.0.dylib
+└── openocd
+    ├── OpenULINK
+    ├── angie
+    ├── contrib
+    └── scripts
+
+10 directories, 6 files
+`} </CodeBlock>
+
+</TabItem>
+
+<TabItem value="linux" label="GNU/Linux">
+
+<CodeBlock language="console"> {
+`$ tree -L 2 ~/.local/xPacks/xpack-dev-tools/openocd/${frontMatter.version}.${frontMatter.npm_subversion}/.content/
+/home/ilg/.local/xPacks/xpack-dev-tools/openocd/${frontMatter.version}.${frontMatter.npm_subversion}/.content/
+├── README.md
+├── bin
+│   └── openocd
+├── distro-info
+│   └── licenses
+├── libexec
+│   ├── libftdi1.so.2 -> libftdi1.so.2.5.0
+│   ├── libftdi1.so.2.5.0
+│   ├── libhidapi-hidraw.so.0 -> libhidapi-hidraw.so.0.14.0
+│   ├── libhidapi-hidraw.so.0.14.0
+│   ├── libudev.so.1 -> libudev.so.1.6.9
+│   ├── libudev.so.1.6.9
+│   ├── libusb-1.0.so.0 -> libusb-1.0.so.0.4.0
+│   └── libusb-1.0.so.0.4.0
+└── openocd
+    ├── OpenULINK
+    ├── angie
+    ├── contrib
+    └── scripts
+
+9 directories, 10 files
+`} </CodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 <DeprecationNotices/>
 
