@@ -106,7 +106,11 @@ Compared to the upstream, the following changes were applied:
 
 ## Known problems
 
-- none
+- Due to a bug in the openocd sources, this release includes a folder
+with trailing spaces (`openocd/angie  `). If the angie related files
+are not used, this usually does not create problems, but might break
+some installs on Windows. The problem was fixed and a new release
+will be available shortly.
 
 ## Documentation
 
