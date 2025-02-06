@@ -26,7 +26,9 @@ function openocd_download()
         --commit="${XBB_OPENOCD_GIT_COMMIT}"
       run_verbose_develop cd "${XBB_SOURCES_FOLDER_PATH}/${openocd_src_folder_name}"
       run_verbose git submodule update --init --recursive --remote
-    )
+
+      # Hack to fix the trailing spaces in `angie` affecting 0.12.0-5.
+      run_verbose sed -i.bak -e 's|  # This is only for dist_angie_DATA.||' src/jtag/drivers/Makefile.am
   fi
 }
 
