@@ -29,6 +29,7 @@ function openocd_download()
 
       # Hack to fix the trailing spaces in `angie` affecting 0.12.0-5.
       run_verbose sed -i.bak -e 's|  # This is only for dist_angie_DATA.||' src/jtag/drivers/Makefile.am
+    )
   fi
 }
 

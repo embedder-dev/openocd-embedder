@@ -29,7 +29,7 @@ function application_build_versioned_components()
     XBB_LIBUSB1_VERSION="1.0.26"
 
     # https://github.com/openocd-org/openocd/commits/master/
-    if [[ "${XBB_RELEASE_VERSION}" =~ 0.12.0-[56] ]]
+    if [[ "${XBB_RELEASE_VERSION}" =~ 0[.]12[.]0-[56] ]]
     then
       # 31 Jan 2025
       XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"eb6f2745b7d9924d0dddeab91c1743867c4e812c"}
