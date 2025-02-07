@@ -38,7 +38,7 @@ function HomepageHeader() {
         </span>
         </p>
         <div className={styles.installWithCopy}>
-          <InstallWithCopy>xpm install @xpack-dev-tools/openocd@0.12.0-5.1 --verbose</InstallWithCopy>
+          <InstallWithCopy>xpm install @xpack-dev-tools/openocd@0.12.0-6.1 --verbose</InstallWithCopy>
         </div>
       </div>
     </header>

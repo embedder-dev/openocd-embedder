@@ -16,6 +16,7 @@ import {developmentDurations} from '../../_shared/_development-durations.mdx';
 
 import PlatformNativeBuild from '../_common/_platform-native-build.mdx';
 import PlatformDockerBuild from '../_common/_platform-docker-build.mdx';
+import GenerateTopCommons from '../_common/_generate-top-commons.mdx';
 
 import MoreRepos from '../_project/_more-repos.mdx';
 import CheckUpstreamRelease from '../_project/_check-upstream-release.mdx';
@@ -118,8 +119,8 @@ In the `xpack-dev-tools/openocd-xpack` Git repo:
 
 - switch to the `xpack-development` branch
 - pull new changes
-- if necessary, merge the `xpack` branch
-- if necessary, merge the `website` branch
+- if necessary, **merge** the `xpack` branch
+- if necessary, **merge** the `website` branch
 
 :::caution
 
@@ -139,16 +140,16 @@ update the dependencies in `build-assets/package.json`.
 
 ### Increase the version and update it in the top `package.json`
 
-- determine the version (like <code>0.12.0-5.1</code>)
+- determine the version (like <code>0.12.0-6.1</code>)
 - update the version in top `package.json`
 - use the new version, suffixed by `.pre`,
-like <code>0.12.0-5.1.pre</code>.
+like <code>0.12.0-6.1.pre</code>.
 
 ### Increase the version and update VERSION
 
-Determine the version (like <code>0.12.0-5</code>)
+Determine the version (like <code>0.12.0-6</code>)
 and update the `build-assets/scripts/VERSION` file; the format
-is <code>0.12.0-5</code>.
+is <code>0.12.0-6</code>.
 {isXpackSubversionDouble() ?
 'The fourth & fifth numbers are the xPack release number of this version. A sixth' :
 'The fourth number is the xPack release number of this version. A fifth'} number will be added to the version in `package.json` when the package is published to the `npm` server.
@@ -157,18 +158,7 @@ is <code>0.12.0-5</code>.
 
 - update the release specific properties (if any)
 
-### Generate the top commons
-
-Run the top **generate-top-commons** npm script to update the
-`build-assets/package.json` and the GitHub workflow files.
-
-```sh
-npm run generate-top-commons -C ~/Work/xpack-dev-tools/openocd-xpack.git
-```
-
-### Commit the top changes
-
-Commit with the message _**re-generate top commons**_.
+<GenerateTopCommons />
 
 ### Update the website commons
 
@@ -176,7 +166,8 @@ Run the **generate-website-commons** npm script from `website/package.json`.
 
 ### Commit the website changes
 
-Commit with the message _**website: re-generate commons**_.
+- **stage** `website` and top `README.md`
+- **commit** with the message _**website: re-generate commons**_
 
 ### Start the local web server
 
@@ -199,7 +190,7 @@ Check GitHub issues and pull requests:
 - https://github.com/xpack-dev-tools/openocd-xpack/issues
 - https://github.com/xpack-dev-tools/openocd-xpack/pulls
 
-and fix them; assign them to a milestone (like <code>0.12.0-5</code>).
+and fix them; assign them to a milestone (like <code>0.12.0-6</code>).
 
 ### Update `CHANGELOG.md`
 
@@ -229,8 +220,8 @@ and fix them; assign them to a milestone (like <code>0.12.0-5</code>).
   ```txt
   *
   ```
-- add a new entry like _**\* v0.12.0-5 prepared**_
-- commit with the message _**prepare v0.12.0-5**_
+- add a new entry like _**\* v0.12.0-6 prepared**_
+- **commit** with the message _**prepare v0.12.0-6**_
 
 
 ### Push the changes to the `xpack-development` branch
@@ -280,6 +271,13 @@ Check if both the **current project** and the **helper** are
 on the `xpack-development` branch and the latest
 commits are pushed to GitHub.
 
+:::caution
+
+This is particularly crucial for extensive projects; otherwise,
+the build may proceed with the previous version.
+
+:::
+
 ### Build the x64 macOS binaries
 
 For x64 macOS, first run the build on the development machine
@@ -313,7 +311,7 @@ xpm run build-development-debug --config darwin-x64 -C ~/Work/xpack-dev-tools/op
 
 The build takes {developmentDurations["work"]} to complete.
 
-When functional, push the `xpack-development` branch to GitHub.
+When functional, **push** the `xpack-development` branch to GitHub.
 
 Run the native build on the production machine
 (`xbbmi`, an older macOS);
@@ -529,6 +527,8 @@ Publish a new release of the helper on **npmjs**.
 In `templates/_xpack-dev-tools/build-assets/package-merge-liquid.json`, update the reference
 to `"@xpack-dev-tools/xbb-helper":`.
 
+<GenerateTopCommons />
+
 ### Check for disk space
 
 Check if the build machines have enough free space and eventually
@@ -574,7 +574,7 @@ rm -rf ~/Work/xpack-dev-tools/*/build-assets/build
 
 ### Commit and push
 
-- push the `xpack-development` branch to GitHub
+- **push** the `xpack-development` branch to GitHub
 
 ### Check if the helper is pushed and published
 
@@ -713,10 +713,10 @@ xattr -cr ${HOME}/Downloads/xpack-*
 ### Create a new GitHub pre-release
 
 - in `CHANGELOG.md`, add the release date and a message
-  like _**\* v0.12.0-5 released**_
-- commit with the message _**CHANGELOG update**_
+  like _**\* v0.12.0-6 released**_
+- **commit** with the message _**CHANGELOG update**_
 - check and possibly update the `build-assets/templates/body-github-release-liquid.mdx`
-- push the `xpack-development` branch to GitHub
+- **push** the `xpack-development` branch to GitHub
 - run the **trigger-workflow-publish-release** xpm action:
 
 ```sh
@@ -728,8 +728,8 @@ The workflow result and logs are available from the
 
 The result is a
 [draft pre-release](https://github.com/xpack-dev-tools/openocd-xpack/releases)
-tagged like **v0.12.0-5** (mind the dash in the middle!) and
-named like **xPack OpenOCD v0.12.0-5** (mind the dash),
+tagged like **v0.12.0-6** (mind the dash in the middle!) and
+named like **xPack OpenOCD v0.12.0-6** (mind the dash),
 with all binaries attached.
 
 - edit the draft and be sure it is attached to the `xpack-development` branch (important!)
@@ -755,16 +755,17 @@ this will add a file in the `website/blog` folder:
 xpm run generate-website-blog-post -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
 ```
 
-- edit the front matter properties
-- select the correct summary
-- commit with the message _**website: blog post release 0.12.0-5 published**_
+- edit the `description` property in the post front matter
+- select the correct summary (maintenance vs. new release)
+- copy/paste the folders hierarchy from the install guide
+- **commit** with the message _**website: blog post release 0.12.0-6 published**_
 
 ### Update the web install page
 
 - check and possibly update the output of the `--version` runs in
   - `website/docs/install/_project/_automatic-install-quick-test.mdx`
   - `website/docs/install/_project/_manual-install-quick-test.mdx`
-- commit with the message _**website: update quick tests**_
+- **commit** with the message _**website: update quick tests**_
 
 ### Check the list of links in top package.json
 
@@ -788,15 +789,15 @@ xpm run update-package-binaries -C ~/Work/xpack-dev-tools/openocd-xpack.git/buil
 - from the release, check the SHA & file names
 - compare the SHA sums with those shown by `cat *.sha`
 - check the executable names
-- commit all changes with the message
-  _**package.json: update urls for 0.12.0-5.1 release**_
+- **commit** all changes with the message
+  _**package.json: update urls for 0.12.0-6.1 release**_
 
 ### Publish on the npmjs.com server
 
 - select the `xpack-development` branch
 - check the latest commits `xpm run git-log`
-- update `CHANGELOG.md`, add a line like _**\* v0.12.0-5.1 published on npmjs.com**_
-- commit with the message _**CHANGELOG: publish npm v0.12.0-5.1**_
+- update `CHANGELOG.md`, add a line like _**\* v0.12.0-6.1 published on npmjs.com**_
+- **commit** with the message _**CHANGELOG: publish npm v0.12.0-6.1**_
 - `npm pack` and check the content of the archive, which should list
   only the `package.json`, the `README.md`, `LICENSE` and `CHANGELOG.md`;
   possibly adjust `.npmignore`
@@ -804,7 +805,7 @@ xpm run update-package-binaries -C ~/Work/xpack-dev-tools/openocd-xpack.git/buil
   GitHub release; the fifth number is the npm specific version:
 
 <CodeBlock language="sh"> {
-`npm version 0.12.0-5.1
+`npm version 0.12.0-6.1
 `} </CodeBlock>
 
 - the commits and the tag should have been pushed by the `postversion` script;
@@ -842,7 +843,7 @@ The tests results are available from the
 When the release is considered stable, promote it as `latest`:
 
 <CodeBlock language="sh"> {
-`npm dist-tag add @xpack-dev-tools/openocd@0.12.0-5.1 latest
+`npm dist-tag add @xpack-dev-tools/openocd@0.12.0-6.1 latest
 `} </CodeBlock>
 
 Check the result:
@@ -854,7 +855,7 @@ Check the result:
 In case the release proves problematic and needs to be unpublished:
 
 <CodeBlock language="sh"> {
-`npm unpublish @xpack-dev-tools/openocd@0.12.0-5.1
+`npm unpublish @xpack-dev-tools/openocd@0.12.0-6.1
 `} </CodeBlock>
 
 ### Build the static website locally
@@ -862,7 +863,7 @@ In case the release proves problematic and needs to be unpublished:
 Validate the web site content in a local build via the npm `build` script:
 
 ```sh
-npm run build -C website
+(cd website; npm run build)
 ```
 
 ### Publish the website
@@ -870,12 +871,16 @@ npm run build -C website
 - open https://xpack-dev-tools.github.io/openocd-xpack/docs/maintainer/#publish-the-website in a separate window
 - stop the local web server
 - select the `website` branch
-- merge `xpack-development` into `website`
-- push the `website` branch to GitHub
+- **merge** `xpack-development` into `website`
+- **push** the `website` branch to GitHub
   :::info
   At this moment an automated GitHub Action will generate and publish the website.
   :::
-- add a new tag like <code>web-{dateYYYYMMDD()}</code>
+- if already there from a previous run, delete the <code>web-{dateYYYYMMDD()}</code> tag, including from remote
+- add a new tag like <code>web-{dateYYYYMMDD()}</code> and push it to remote
+- checkout the `xpack-development` branch
+- wait for the publish to complete
+- refresh the web page
 - the new release blog post is
 in https://xpack-dev-tools.github.io/openocd-xpack/blog/
 - remember the post URL, since it must be used to update the release page
@@ -889,8 +894,9 @@ version in the top `package.json` is not changed.
 In this Git repo:
 
 - select the `xpack` branch
-- merge `xpack-development` into `xpack`
-- push the `xpack` branch to GitHub
+- **merge** `xpack-development` into `xpack`
+- **push** the `xpack` branch to GitHub
+- checkout the `xpack-development` branch
 
 :::note
 
@@ -945,7 +951,7 @@ Close those that were addressed.
 
 - in a separate browser windows, open [X/Twitter](https://twitter.com)
 - using the **`@xpack_project`** account
-- paste the release name like _**xPack OpenOCD v0.12.0-5 released**_
+- paste the release name like _**xPack OpenOCD v0.12.0-6 released**_
 - paste the link to the blog post
   [release](https://github.com/xpack-dev-tools/openocd-xpack/releases)
 - click the **Tweet** button
