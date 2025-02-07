@@ -734,6 +734,10 @@ with all binaries attached.
 
 - edit the draft and be sure it is attached to the `xpack-development` branch (important!)
 - perform the final edits (maintenance vs. new release) and check if everything is fine
+- add entries in the **Bug fixes**; use the following syntax
+  ```
+  - [[#N](https://github.com/xpack-dev-tools/openocd-xpack/issues/N)]:
+  ```
 - **keep the pre-release button enabled**
 - do **not** enable Discussions yet
 - click the **Publish release** button
@@ -750,11 +754,9 @@ watching the openocd-xpack project.
 - check and possibly update the `website/blog/_templates/blog-post-release-part-[12]-liquid.md`
 - run the **generate-website-blog-post** xpm action;
 this will add a file in the `website/blog` folder:
-
-```sh
-xpm run generate-website-blog-post -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
-```
-
+  ```sh
+  xpm run generate-website-blog-post -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
+  ```
 - edit the `description` property in the post front matter
 - select the correct summary (maintenance vs. new release)
 - copy/paste the folders hierarchy from the install guide
@@ -778,11 +780,9 @@ xpm run generate-website-blog-post -C ~/Work/xpack-dev-tools/openocd-xpack.git/b
 - select the `xpack-development` branch
 - be sure that the binaries were attached to the pre-release
 - run the **update-package-binaries** xpm action:
-
-```sh
-xpm run update-package-binaries -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
-```
-
+  ```sh
+  xpm run update-package-binaries -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
+  ```
 - open the top `package.json` file
 - check the `baseUrl:` it should match the file URLs (including the tag/version);
   no terminating `/` is required
@@ -803,24 +803,19 @@ xpm run update-package-binaries -C ~/Work/xpack-dev-tools/openocd-xpack.git/buil
   possibly adjust `.npmignore`
 - configure the version; the first 4 numbers are the same as the
   GitHub release; the fifth number is the npm specific version:
-
-<CodeBlock language="sh"> {
-`npm version 0.12.0-6.1
-`} </CodeBlock>
-
+  ```sh
+  npm version 0.12.0-6.1
+  ```
 - the commits and the tag should have been pushed by the `postversion` script;
   if not, push them with `git push origin --tags` to GitHub
 - publish and add the `test` tag:
-
-```sh
-npm publish --tag test
-```
-
+  ```sh
+  npm publish --tag test
+  ```
 - when publishing for the first time, use:
-
-```sh
-npm publish --access public
-```
+  ```sh
+  npm publish --access public
+  ```
 
 After a few moments the version will be visible at
 <a href="https://www.npmjs.com/package/@xpack-dev-tools/openocd?activeTab=versions">npmjs.com</a>.
@@ -927,7 +922,7 @@ Avoid further updates to the `xpack` branch until the next release.
 
 ### Clean the work area
 
-Run the **trigger-workflow-deep-clean** xpm action
+Run the **trigger-workflow-deep-clean** xpm action:
 
 ```sh
 xpm run trigger-workflow-deep-clean -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
