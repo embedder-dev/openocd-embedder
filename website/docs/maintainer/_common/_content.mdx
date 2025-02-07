@@ -391,9 +391,9 @@ Commit with the message _**website: update development durations**_.
 Copy the trees displayed at the end of the test builds and paste to
 **Folder hierarchy** section in the web file:
 
-- `website/docs/install/_project/_folders-hierarchies-linux.mdx`
-- `website/docs/install/_project/_folders-hierarchies-macos.mdx`
-- `website/docs/install/_project/_folders-hierarchies-windows.mdx`
+- `website/docs/_shared/_folders-hierarchies-linux.mdx`
+- `website/docs/_shared/_folders-hierarchies-macos.mdx`
+- `website/docs/_shared/_folders-hierarchies-windows.mdx`
 
 If present, replace the actual version
 (like **0.12.0**) with the following expression:
@@ -718,10 +718,9 @@ xattr -cr ${HOME}/Downloads/xpack-*
 - check and possibly update the `build-assets/templates/body-github-release-liquid.mdx`
 - **push** the `xpack-development` branch to GitHub
 - run the **trigger-workflow-publish-release** xpm action:
-
-```sh
-xpm run trigger-workflow-publish-release -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
-```
+  ```sh
+  xpm run trigger-workflow-publish-release -C ~/Work/xpack-dev-tools/openocd-xpack.git/build-assets
+  ```
 
 The workflow result and logs are available from the
 [GitHub Actions](https://github.com/xpack-dev-tools/openocd-xpack/actions) page.
@@ -759,7 +758,7 @@ this will add a file in the `website/blog` folder:
   ```
 - edit the `description` property in the post front matter
 - select the correct summary (maintenance vs. new release)
-- copy/paste the folders hierarchy from the install guide
+- copy/paste the folders hierarchies from the install guide
 - **commit** with the message _**website: blog post release 0.12.0-6 published**_
 
 ### Update the web install page
