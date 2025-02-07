@@ -29,19 +29,13 @@ function application_build_versioned_components()
     XBB_LIBUSB1_VERSION="1.0.26"
 
     # https://github.com/openocd-org/openocd/commits/master/
-    if [ "${XBB_RELEASE_VERSION}" == "0.12.0-1" ]
+    if [[ "${XBB_RELEASE_VERSION}" =~ 0.12.0-[56] ]]
     then
-      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"v0.12.0"}
-    elif [ "${XBB_RELEASE_VERSION}" == "0.12.0-2" ]
-    then
-      # Sep 2, 2023
-      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"18281b0c497694d91c5608be54583172838be75c"}
-    elif [ "${XBB_RELEASE_VERSION}" == "0.12.0-3" ]
-    then
-      # Apr 1, 2024
-      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"dd1758272276e20d5b60c16146a820ec8b5bfaa1"}
+      # 31 Jan 2025
+      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"eb6f2745b7d9924d0dddeab91c1743867c4e812c"}
 
-      XBB_TEXINFO_VERSION="7.1"
+      XBB_LIBICONV_VERSION="1.18"
+      XBB_TEXINFO_VERSION="7.2"
       XBB_LIBUSB1_VERSION="1.0.27"
     elif [ "${XBB_RELEASE_VERSION}" == "0.12.0-4" ]
     then
@@ -50,14 +44,20 @@ function application_build_versioned_components()
 
       XBB_TEXINFO_VERSION="7.1"
       XBB_LIBUSB1_VERSION="1.0.27"
-    elif [ "${XBB_RELEASE_VERSION}" == "0.12.0-5" ]
+    elif [ "${XBB_RELEASE_VERSION}" == "0.12.0-3" ]
     then
-      # 31 Jan 2025
-      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"eb6f2745b7d9924d0dddeab91c1743867c4e812c"}
+      # Apr 1, 2024
+      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"dd1758272276e20d5b60c16146a820ec8b5bfaa1"}
 
-      XBB_LIBICONV_VERSION="1.18"
-      XBB_TEXINFO_VERSION="7.2"
+      XBB_TEXINFO_VERSION="7.1"
       XBB_LIBUSB1_VERSION="1.0.27"
+    elif [ "${XBB_RELEASE_VERSION}" == "0.12.0-2" ]
+    then
+      # Sep 2, 2023
+      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"18281b0c497694d91c5608be54583172838be75c"}
+    elif [ "${XBB_RELEASE_VERSION}" == "0.12.0-1" ]
+    then
+      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"v0.12.0"}
     else
       echo "Unsupported ${XBB_APPLICATION_LOWER_CASE_NAME} version ${XBB_RELEASE_VERSION}"
       exit 1

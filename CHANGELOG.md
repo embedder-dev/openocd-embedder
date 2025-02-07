@@ -2,9 +2,23 @@
 
 Entries in this file are in reverse chronological order.
 
+## 2025-02-07
+
+* v0.12.0-6 prepared
+* f68a5d1 website: re-generate commons
+
+## 2025-02-06
+
+* 03e3721 website: add folders to post
+* 109f5df website: add known problems to post
+* 7a4dbf1 openocd.sh: hack to fix the trailing spaces in `angie`
+
 ## 2025-02-05
 
-* v0.12.0-5.1 published on npmjs.com
+* 54dce73 website: fix release url
+* 680e5df website: re-generate commons for dateYYYYMMDD
+* c0e7276 0.12.0-5.1
+* fab1e9b CHANGELOG: publish npm v0.12.0-5.1
 * 9734805 package.json: update urls for 0.12.0-5.1 release
 * 540168b website: blog post release 0.12.0-5 published
 * e3154a6 CHANGELOG update* 3c2ca54 website: re-generate commons
