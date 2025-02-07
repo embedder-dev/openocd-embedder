@@ -4,7 +4,11 @@ Entries in this file are in reverse chronological order.
 
 ## 2025-02-07
 
-* v0.12.0-6 released
+* v0.12.0-6.1 published on npmjs.com
+* c251622 package.json: update urls for 0.12.0-6.1 release
+* e347609 website: re-generate commons
+* fdd3dce website: blog post release 0.12.0-6 published
+* e48a752 CHANGELOG update
 * dfa38c2 build-assets: fix bash syntax
 * 45f17f0 prepare v0.12.0-6
 * f68a5d1 website: re-generate commons
