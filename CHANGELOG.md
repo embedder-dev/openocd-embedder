@@ -4,7 +4,9 @@ Entries in this file are in reverse chronological order.
 
 ## 2025-02-07
 
-* v0.12.0-6 prepared
+* v0.12.0-6 released
+* dfa38c2 build-assets: fix bash syntax
+* 45f17f0 prepare v0.12.0-6
 * f68a5d1 website: re-generate commons
 
 ## 2025-02-06
