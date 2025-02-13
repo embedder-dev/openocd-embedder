@@ -50,10 +50,6 @@
           "fileName": "xpack-openocd-0.12.0-6-linux-arm64.tar.gz",
           "sha256": "46cca363793d35b65d815c0b9ddff765a082cfdf226868390eef69132368aa3d"
         },
-        "linux-arm": {
-          "fileName": "xpack-openocd-0.12.0-6-linux-arm.tar.gz",
-          "sha256": "ff7ba12cc72f46b686d249dbe1131cc0e8e7ffeffbcc06d2290f0db203d412f3"
-        },
         "linux-x64": {
           "fileName": "xpack-openocd-0.12.0-6-linux-x64.tar.gz",
           "sha256": "7e762af5f9a4f21ac03130ddce36acf996f3e67c4ee1526ed3d4f8ad89e65c77"
