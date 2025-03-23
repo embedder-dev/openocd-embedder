@@ -9,7 +9,7 @@
  * for any purpose is hereby granted, under the terms of the MIT license.
  *
  * If a copy of the license was not distributed with this file, it can
- * be obtained from https://opensource.org/licenses/MIT/.
+ * be obtained from https://opensource.org/licenses/mit.
  */
 
 import React from 'react';
@@ -38,7 +38,9 @@ function HomepageHeader() {
         </span>
         </p>
         <div className={styles.installWithCopy}>
-          <InstallWithCopy>xpm install @xpack-dev-tools/openocd@0.12.0-6.1 --verbose</InstallWithCopy>
+          <InstallWithCopy>xpm install @xpack-dev-tools/openocd@0.12.0-6.1 --verbose
+          </InstallWithCopy>
+
         </div>
       </div>
     </header>
