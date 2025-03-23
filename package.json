@@ -72,6 +72,7 @@
   "topConfig": {
     "descriptiveName": "OpenOCD",
     "permalinkName": "openocd",
+    "skipCiTests": "true",
     "useSelfHostedRunners": "true"
   },
   "engines": {
