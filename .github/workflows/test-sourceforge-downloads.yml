@@ -45,7 +45,7 @@
 
             # https://sourceforge.net/projects/openocd-xpack/files/
             name="openocd"
-            threshold=0 # 16383 # (50%)
+            threshold=16383 # (50%)
 
             # 2024
             platforms="win32-x64,linux-x64,linux-arm64,linux-arm,darwin-x64,darwin-arm64"
@@ -74,4 +74,3 @@
             platforms="win32-x64,win32-x32,linux-x64,linux-x32,darwin-x64"
             download_sourceforge "${name}" "0.10.0-15" ${threshold} "${platforms}"
             download_sourceforge "${name}" "0.10.0-14" ${threshold} "${platforms}"
-            download_sourceforge "${name}" "0.10.0-13" ${threshold} "${platforms}"
