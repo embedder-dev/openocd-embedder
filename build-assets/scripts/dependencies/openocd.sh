@@ -200,7 +200,6 @@ function openocd_build()
           config_options+=("--disable-zy1000")
           config_options+=("--disable-ioutil")
           config_options+=("--disable-minidriver-dummy")
-          config_options+=("--disable-parport-ppdev")
 
           if [ "${XBB_HOST_PLATFORM}" == "win32" ]
           then
@@ -231,6 +230,8 @@ function openocd_build()
             # oocd_trace.h:22:10: fatal error: termios.h: No such file or directory
             config_options+=("--disable-oocd_trace")
 
+            config_options+=("--disable-parport-ppdev")
+
           elif [ "${XBB_HOST_PLATFORM}" == "linux" ]
           then
 
@@ -253,6 +254,8 @@ function openocd_build()
             # Deprecated
             # config_options+=("--enable-oocd_trace")
 
+            config_options+=("--disable-parport-ppdev")
+
           elif [ "${XBB_HOST_PLATFORM}" == "darwin" ]
           then
 
@@ -270,6 +273,10 @@ function openocd_build()
             config_options+=("--disable-gw16012")
             config_options+=("--disable-parport")
             config_options+=("--disable-parport-giveio")
+            if [ "${XBB_HOST_ARCH}" == "x64" ]
+            then
+              config_options+=("--disable-parport-ppdev")
+            fi
             # --enable-sysfsgpio -> available only on Linux
             config_options+=("--disable-sysfsgpio")
 
