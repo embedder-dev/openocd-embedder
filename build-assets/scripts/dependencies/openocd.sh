@@ -171,7 +171,6 @@ function openocd_build()
           config_options+=("--enable-bcm2835gpio")
           config_options+=("--enable-cmsis-dap")
           config_options+=("--enable-dummy")
-          config_options+=("--enable-ep93xx")
           config_options+=("--enable-ft232r")
           config_options+=("--enable-ftdi")
           config_options+=("--enable-imx_gpio")
@@ -196,6 +195,7 @@ function openocd_build()
           config_options+=("--enable-xds110")
 
           # Disable drivers that apparently failed to build on all platforms.
+          config_options+=("--disable-ep93xx")
           config_options+=("--disable-zy1000-master")
           config_options+=("--disable-zy1000")
           config_options+=("--disable-ioutil")
@@ -243,6 +243,7 @@ function openocd_build()
 
             config_options+=("--enable-amtjtagaccel")
             config_options+=("--enable-buspirate")
+            config_options+=("--enable-ep93xx")
             config_options+=("--enable-gw16012")
             config_options+=("--enable-linuxspidev")
             config_options+=("--enable-parport")
@@ -269,6 +270,7 @@ function openocd_build()
             # --enable-usb_blaster_libftdi -> --enable-usb_blaster
 
             config_options+=("--enable-buspirate")
+            config_options+=("--enable-ep93xx")
 
             # --enable-amtjtagaccel -> 'sys/io.h' file not found
             config_options+=("--disable-amtjtagaccel")
