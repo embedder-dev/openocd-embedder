@@ -167,12 +167,10 @@ function openocd_build()
           # Add explicit functionality.
           config_options+=("--enable-aice")
           config_options+=("--enable-armjtagew")
-          config_options+=("--enable-bcm2835gpio")
           config_options+=("--enable-cmsis-dap")
           config_options+=("--enable-dummy")
           config_options+=("--enable-ft232r")
           config_options+=("--enable-ftdi")
-          config_options+=("--enable-imx_gpio")
           config_options+=("--enable-jlink")
           config_options+=("--enable-jtag_vpi")
           config_options+=("--enable-kitprog")
@@ -223,8 +221,12 @@ function openocd_build()
             config_options+=("--disable-at91rm9200")
             config_options+=("--disable-ep93xx")
 
+            config_options+=("--disable-bcm2835gpio")
+
             # --enable-buspirate -> not supported on mingw
             config_options+=("--disable-buspirate")
+
+            config_options+=("--disable-imx_gpio")
 
             # oocd_trace.h:22:10: fatal error: termios.h: No such file or directory
             config_options+=("--disable-oocd_trace")
@@ -245,9 +247,11 @@ function openocd_build()
 
             config_options+=("--enable-amtjtagaccel")
             config_options+=("--enable-at91rm9200")
+            config_options+=("--enable-bcm2835gpio")
             config_options+=("--enable-buspirate")
             config_options+=("--enable-ep93xx")
             config_options+=("--enable-gw16012")
+            config_options+=("--enable-imx_gpio")
             config_options+=("--enable-linuxspidev")
             config_options+=("--enable-parport")
             # cannot be used by x86_64-pc-linux-gnu hosts
@@ -273,8 +277,10 @@ function openocd_build()
             # --enable-usb_blaster_libftdi -> --enable-usb_blaster
 
             config_options+=("--enable-at91rm9200")
+            config_options+=("--enable-bcm2835gpio")
             config_options+=("--enable-buspirate")
             config_options+=("--enable-ep93xx")
+            config_options+=("--enable-imx_gpio")
 
             # --enable-amtjtagaccel -> 'sys/io.h' file not found
             config_options+=("--disable-amtjtagaccel")
