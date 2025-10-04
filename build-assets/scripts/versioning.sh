@@ -22,7 +22,7 @@ function application_build_versioned_components()
     # https://ftp.gnu.org/pub/gnu/libiconv/
     XBB_LIBICONV_VERSION="1.17"
 
-    # https://ftp.gnu.org/gnu/texinfo/
+    # https://ftpmirror.gnu.org/gnu/texinfo/
     XBB_TEXINFO_VERSION="7.0.3"
 
     # https://sourceforge.net/projects/libusb/files/libusb-1.0/
@@ -135,7 +135,7 @@ function application_build_versioned_components()
 
     autotools_build
 
-    # https://ftp.gnu.org/gnu/texinfo/
+    # https://ftpmirror.gnu.org/gnu/texinfo/
     texinfo_build "6.8"
 
     # -------------------------------------------------------------------------
