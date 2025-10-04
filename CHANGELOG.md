@@ -2,8 +2,64 @@
 
 Entries in this file are in reverse chronological order.
 
+## 2025-10-04
+
+* v0.12.0-7 prepared
+* 51f09aa re-generate website commons
+* e36008a re-generate top commons
+
+## 2025-04-09
+
+* bb19da5 test-sourceforge*: on every Saturday
+
+## 2025-04-06
+
+* 9b5548d test-sourceforge-downloads.yml update
+
+## 2025-04-05
+
+* 86fe936 test-sourceforge-downloads.yml test
+* 6eba49d add test-sourceforge-downloads.yml
+
+## 2025-03-23
+
+* dcb79b4 update /licenses/MIT
+* 8e70fab website: re-generate commons
+* adc4a89 re-generate commons
+* 24c4ece website: re-generate commons
+* aa7b8fe website package.json shareOnTwitter update
+* 962ed0f website package.json author update
+* fdd626f website generate-website-commons update
+
+## 2025-02-24
+
+* 4f05e63 website: re-generate descriptive & permalink names
+* 7823e9e re-generate descriptive & permalink names
+
+## 2025-02-23
+
+* be61b6c website: re-generate commons
+* 6a4b2ee re-generate commons
+
+## 2025-02-18
+
+* c80f005 package.json: bump minimumXpmRequired 0.20.5
+* 8a1ac05 package.json: bump xpm 0.20.5
+
+## 2025-02-14
+
+* f4ff796 re-generate commons
+* ed7c72f re-generate commons
+
+## 2025-02-13
+
+* e78af36 re-generate commons
+
 ## 2025-02-07
 
+* 4bb1ff2 website: re-generate commons
+* 1253ec3 0.12.0-6.1
+* 47248ff CHANGELOG: publish npm v0.12.0-6.1
 * v0.12.0-6.1 published on npmjs.com
 * c251622 package.json: update urls for 0.12.0-6.1 release
 * e347609 website: re-generate commons

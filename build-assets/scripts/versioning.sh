@@ -19,7 +19,7 @@ function application_build_versioned_components()
     XBB_OPENOCD_GIT_URL=${XBB_APPLICATION_OPENOCD_GIT_URL:-"https://github.com/openocd-org/openocd.git"}
     XBB_OPENOCD_GIT_BRANCH=${XBB_APPLICATION_OPENOCD_GIT_BRANCH:-"master"}
 
-    # https://ftp.gnu.org/pub/gnu/libiconv/
+    # https://ftpmirror.gnu.org/gnu/libiconv/
     XBB_LIBICONV_VERSION="1.17"
 
     # https://ftpmirror.gnu.org/gnu/texinfo/
@@ -28,8 +28,21 @@ function application_build_versioned_components()
     # https://sourceforge.net/projects/libusb/files/libusb-1.0/
     XBB_LIBUSB1_VERSION="1.0.26"
 
+    # https://github.com/libusb/hidapi/releases
+    XBB_HIDAPI_VERSION="0.14.0"
+
     # https://github.com/openocd-org/openocd/commits/master/
-    if [[ "${XBB_RELEASE_VERSION}" =~ 0[.]12[.]0-[56] ]]
+    if [[ "${XBB_RELEASE_VERSION}" =~ 0[.]12[.]0-[7] ]]
+    then
+      # https://github.com/openocd-org/openocd/commits/master/
+      # 30 Sep 2025
+      XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"e5888bda38f4952e2ae92f7dc5b25fc9a2d1c2b3"}
+
+      XBB_LIBICONV_VERSION="1.18"
+      XBB_TEXINFO_VERSION="7.2"
+      XBB_LIBUSB1_VERSION="1.0.29"
+      XBB_HIDAPI_VERSION="0.15.0"
+    elif [[ "${XBB_RELEASE_VERSION}" =~ 0[.]12[.]0-[56] ]]
     then
       # 31 Jan 2025
       XBB_OPENOCD_GIT_COMMIT=${XBB_APPLICATION_OPENOCD_GIT_COMMIT:-"eb6f2745b7d9924d0dddeab91c1743867c4e812c"}
@@ -106,7 +119,7 @@ function application_build_versioned_components()
     libftdi_build "1.5" # ! PATCH
 
     # https://github.com/libusb/hidapi/releases
-    hidapi_build "0.14.0" # "0.12.0"
+    hidapi_build "${XBB_HIDAPI_VERSION}" # "0.12.0"
 
     # -------------------------------------------------------------------------
     # Build the application binaries.
