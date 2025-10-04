@@ -167,7 +167,6 @@ function openocd_build()
           # Add explicit functionality.
           config_options+=("--enable-aice")
           config_options+=("--enable-armjtagew")
-          config_options+=("--enable-at91rm9200")
           config_options+=("--enable-bcm2835gpio")
           config_options+=("--enable-cmsis-dap")
           config_options+=("--enable-dummy")
@@ -195,7 +194,6 @@ function openocd_build()
           config_options+=("--enable-xds110")
 
           # Disable drivers that apparently failed to build on all platforms.
-          config_options+=("--disable-ep93xx")
           config_options+=("--disable-zy1000-master")
           config_options+=("--disable-zy1000")
           config_options+=("--disable-ioutil")
@@ -222,8 +220,9 @@ function openocd_build()
             # cannot be used by x86_64-pc-linux-gnu hosts
             # config_options+=("--enable-parport-giveio")
 
-            # --enable-sysfsgpio -> available only on Linux
-            config_options+=("--disable-sysfsgpio")
+            config_options+=("--disable-at91rm9200")
+            config_options+=("--disable-ep93xx")
+
             # --enable-buspirate -> not supported on mingw
             config_options+=("--disable-buspirate")
 
@@ -231,6 +230,9 @@ function openocd_build()
             config_options+=("--disable-oocd_trace")
 
             config_options+=("--disable-parport-ppdev")
+
+            # --enable-sysfsgpio -> available only on Linux
+            config_options+=("--disable-sysfsgpio")
 
           elif [ "${XBB_HOST_PLATFORM}" == "linux" ]
           then
@@ -242,6 +244,7 @@ function openocd_build()
             # --enable-usb_blaster_libftdi -> --enable-usb_blaster
 
             config_options+=("--enable-amtjtagaccel")
+            config_options+=("--enable-at91rm9200")
             config_options+=("--enable-buspirate")
             config_options+=("--enable-ep93xx")
             config_options+=("--enable-gw16012")
@@ -269,6 +272,7 @@ function openocd_build()
             # --enable-presto_libftdi -> --enable-presto
             # --enable-usb_blaster_libftdi -> --enable-usb_blaster
 
+            config_options+=("--enable-at91rm9200")
             config_options+=("--enable-buspirate")
             config_options+=("--enable-ep93xx")
 
