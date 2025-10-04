@@ -254,7 +254,10 @@ function openocd_build()
             # Deprecated
             # config_options+=("--enable-oocd_trace")
 
-            config_options+=("--disable-parport-ppdev")
+            if [ "${XBB_HOST_ARCH}" == "x64" ]
+            then
+              config_options+=("--disable-parport-ppdev")
+            fi
 
           elif [ "${XBB_HOST_PLATFORM}" == "darwin" ]
           then
