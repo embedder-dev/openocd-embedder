@@ -2,8 +2,24 @@
 
 Entries in this file are in reverse chronological order.
 
+## 2025-10-05
+
+* v0.12.0-7.1 published on npmjs.com
+* 59de393 package.json: update URLs for 0.12.0-7.1 release
+* 5d5a801 website: blog post release 0.12.0-7.1 published
+* 0ddf054 website: update actions durations
+* d916db4 website: update folder hierarchies
+* deb68a0 website: update development durations
+* 10eb7ea openocd fix bcm2835gpio & imx_gpio on windows
+* 9d7800c openocd fix at91rm9200 on windows
+* 084bc80 openocd fix ep93xx on windows
+
 ## 2025-10-04
 
+* 9663bfb openocd.sh fix --disable-parport-ppdev on arm64
+* 8d18904 openocd.sh fix --disable-parport-ppdev on arm64
+* 67fcf45 package.json bump deps
+* 4a296e4 prepare v0.12.0-7
 * v0.12.0-7 prepared
 * 51f09aa re-generate website commons
 * e36008a re-generate top commons
