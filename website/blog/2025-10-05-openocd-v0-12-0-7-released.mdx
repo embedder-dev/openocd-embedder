@@ -1,8 +1,8 @@
 ---
 
-title: xPack xPack OpenOCD v0.12.0-7 released
+title: xPack OpenOCD v0.12.0-7 released
 seo_title: Version 0.12.0-7 released
-description: Version 0.12.0-7 is a TODO new/maintenance release.
+description: Version 0.12.0-7 is a new release.
 keywords:
   - xpack
   - openocd
@@ -34,6 +34,8 @@ import Image from '@theme/IdealImage';
 import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+import customField from '@site/src/libs/customField';
 
 import Prerequisites from './_common/_prerequisites-glib-2.28.mdx';
 import DeprecationNotices from './_common/_deprecation-notices-glib-2.28.mdx';
@@ -77,7 +79,7 @@ The easiest way to install this specific version, is by using **xpm**:
 `xpm install @xpack-dev-tools/openocd@${frontMatter.version}.${frontMatter.npm_subversion} --verbose
 `} </CodeBlock>
 
-Comprehensive instructions for installing **xPack xPack OpenOCD** on different platforms
+Comprehensive instructions for installing **xPack OpenOCD** on different platforms
 can be found in the [Install Guide](/docs/install/).
 
 ## Compliance
@@ -189,7 +191,18 @@ Folder PATH listing
 Volume serial number is B02D-925C
 ├── README.md
 ├── bin
-TODO
+│   ├── libftdi1.dll
+│   ├── libusb-1.0.dll
+│   └── openocd.exe
+├── distro-info
+│   └── licenses
+└── openocd
+    ├── OpenULINK
+    ├── angie
+    ├── contrib
+    └── scripts
+
+8 directories, 4 files
 `} </CodeBlock>
 
 </TabItem>
@@ -201,7 +214,21 @@ TODO
 /Users/ilg/Library/xPacks/\@xpack-dev-tools/openocd/${frontMatter.version}.${frontMatter.npm_subversion}/.content/
 ├── README.md
 ├── bin
-TODO
+│   └── openocd
+├── distro-info
+│   └── licenses
+├── libexec
+│   ├── libftdi1.2.5.0.dylib
+│   ├── libftdi1.2.dylib -> libftdi1.2.5.0.dylib
+│   ├── libhidapi.0.15.0.dylib
+│   └── libusb-1.0.0.dylib
+└── openocd
+    ├── OpenULINK
+    ├── angie
+    ├── contrib
+    └── scripts
+
+10 directories, 6 files
 `} </CodeBlock>
 
 </TabItem>
@@ -213,7 +240,25 @@ TODO
 /home/ilg/.local/xPacks/\@xpack-dev-tools/openocd/${frontMatter.version}.${frontMatter.npm_subversion}/.content/
 ├── README.md
 ├── bin
-TODO
+│   └── openocd
+├── distro-info
+│   └── licenses
+├── libexec
+│   ├── libftdi1.so.2 -> libftdi1.so.2.5.0
+│   ├── libftdi1.so.2.5.0
+│   ├── libhidapi-hidraw.so.0 -> libhidapi-hidraw.so.0.15.0
+│   ├── libhidapi-hidraw.so.0.15.0
+│   ├── libudev.so.1 -> libudev.so.1.6.13
+│   ├── libudev.so.1.6.13
+│   ├── libusb-1.0.so.0 -> libusb-1.0.so.0.5.0
+│   └── libusb-1.0.so.0.5.0
+└── openocd
+    ├── OpenULINK
+    ├── angie
+    ├── contrib
+    └── scripts
+
+9 directories, 10 files
 `} </CodeBlock>
 
 </TabItem>
