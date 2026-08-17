@@ -154,7 +154,7 @@ jobs:
           allowUpdates: true
           artifacts: 'build-assets/build/darwin-x64/deploy/*'
           bodyFile: '.github/workflows/body-github-pre-releases-test.md'
-          commit: 'embedder/mainline'
+          commit: 'main'
           draft: false
           name: 'Embedder OpenOCD staging binaries'
           omitBodyDuringUpdate: true
