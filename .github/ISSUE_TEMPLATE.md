@@ -1,55 +1,37 @@
-### Disclaimer
+### Before you file
 
-The xPack OpenOCD is only a binary distribution of the standard source code
-OpenOCD, and does not intend to add new functionality, or to fix existing
-problems.
+This repository builds a **binary distribution** of OpenOCD for
+[Embedder](https://embedder.dev). It does not add functionality to OpenOCD or
+fix bugs in it.
 
-If you have questions/suggestions related to the procedure used to
-build/publish the binary distribution, continue reading the next sections.
-
-If you have problems related to OpenOCD functionality, please use the
-official [OpenOCD support channels](https://openocd.org/discussion/).
-
-### Prerequisites
-
-Before entering a new ticket, please consider the following:
-
-- [ ] read the documentation pages carefully (https://openocd.org/doc/pdf/openocd.pd)
-- [ ] check the [GitHub Discussions](https://github.com/xpack-dev-tools/openocd-xpack/discussions/) for similar problems
-- [ ] check the [GitHub Issues](https://github.com/xpack-dev-tools/openocd-xpack/issues/)
-
-If you still could not find a solution, if you have interesting use
-cases, if you have custom configurations, and generally if you have
-any experience that you want to share with others, use the
-[GitHub Discussions](https://github.com/xpack-dev-tools/openocd-xpack/discussions/).
-
-If you are convinced that you identified a bug related to the binary
-distribution, not OpenOCD itself (if you have doubts, use the Discussions),
-or you have a pertinent suggestion how to enhance the xPack OpenOCD
-distribution, continue and register a new issue.
+- Problems with **OpenOCD itself** (a target that will not halt, a flash
+  driver that misbehaves, a config file that is wrong) belong upstream, at the
+  [OpenOCD support channels](https://openocd.org/discussion/). Please
+  reproduce them with a stock OpenOCD build first.
+- Problems with **Embedder** — target detection, the debug session, the UI —
+  belong in the Embedder issue tracker, not here.
+- Problems with **this distribution** — a missing host, a broken archive, a
+  checksum mismatch, an adapter that is not compiled in, a target config that
+  ships upstream but not here — are what this tracker is for.
 
 ### Description
 
-[Description of the bug or feature]
+[What went wrong]
 
-### Steps to Reproduce
+### Steps to reproduce
 
-1. [First Step]
-2. [Second Step]
-3. [and so on...]
+1. [First step]
+2. [Second step]
 
-**Expected behaviour:** [What you expected to happen]
+**Expected:** [What you expected to happen]
 
-**Actual behaviour:** [What actually happened]
+**Actual:** [What actually happened]
 
 ### Versions
 
-- [OpenOCD version]
-- [operating system]
+- Output of `openocd --version` (the full line, including the commit hash)
+- The archive you installed, e.g. `embedder-openocd-0.12.0-8-darwin-arm64.tar.gz`
+- Operating system and architecture
+- Debug probe and target MCU, if relevant
 
-Please understand that without being able to reproduce the bug we cannot
-identify your problem.
-
----
-
-Note: Remove unnecessary text after reading, before entering your ticket.
+Without a reproduction we usually cannot act on a report.

@@ -1,23 +1,18 @@
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/xpack-dev-tools/openocd-xpack)](https://github.com/xpack-dev-tools/openocd-xpack/blob/xpack/package.json)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/xpack-dev-tools/openocd-xpack)](https://github.com/xpack-dev-tools/openocd-xpack/releases/)
-[![npm (scoped)](https://img.shields.io/npm/v/@xpack-dev-tools/openocd.svg?color=blue)](https://www.npmjs.com/package/@xpack-dev-tools/openocd/)
-[![license](https://img.shields.io/github/license/xpack-dev-tools/openocd-xpack)](https://github.com/xpack-dev-tools/openocd-xpack/blob/xpack/LICENSE)
+# Embedder OpenOCD — build assets
 
-# The xPack OpenOCD
+The build scripts, xpm actions and dependency definitions used to produce the
+`embedder-openocd-*` archives.
 
-A standalone cross-platform (Windows, macOS, GNU/Linux)
-binary distribution of OpenOCD,
-intended for reproducible builds.
+See the [repository README](../README.md) for what this fork is and how it
+differs from upstream xPack, and [RELEASING.md](../RELEASING.md) for the build
+and release procedure.
 
-## Project documentation
+Key files:
 
-For information on how to install and use the tools provided by this project,
-please refer to the
-[project web site](https://xpack-dev-tools.github.io/openocd-xpack/).
-
-## License
-
-Unless otherwise stated, the original content is released under the terms of the
-[MIT License](https://opensource.org/licenses/mit),
-with all rights reserved to
-[Liviu Ionescu](https://github.com/ilg-ul).
+- `scripts/VERSION` — the release version.
+- `scripts/versioning.sh` — the pinned upstream OpenOCD commit and the
+  dependency versions.
+- `scripts/dependencies/openocd.sh` — the configure options and the two seds
+  that constitute this distribution's delta over upstream OpenOCD.
+- `scripts/application.sh` — the distribution name, which the packaging uses
+  to compose the archive and its root folder.
