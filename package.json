@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "xpack": {
-    "minimumXpmRequired": "0.20.5",
+    "minimumXpmRequired": "0.23.2",
     "binaries": {
       "destination": "./.content",
       "baseUrl": "https://github.com/embedder-dev/openocd-embedder/releases/download/v0.12.0-8",
