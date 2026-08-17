@@ -1,3 +1,6 @@
-Binaries that are expected to be fully functional, to be tested before publishing.
+Staging area for Embedder OpenOCD builds.
 
-Warning: Do not use them in production, since occasionally they may be broken.
+Each `build-<host>.yml` run replaces its own archive here. These binaries are
+untested and may be broken or incomplete — Embedder never downloads from this
+tag. `publish-release.yml` promotes a complete set of five hosts into a real
+`v<version>` release.

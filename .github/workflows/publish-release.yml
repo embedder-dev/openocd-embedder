@@ -1,8 +1,6 @@
 # -----------------------------------------------------------------------------
-# DO NOT EDIT!
-# Automatically generated from npm-packages-helper/templates/*.
 #
-# This file is part of the xPack project (http://xpack.github.io).
+# Derived from the xPack project (http://xpack.github.io).
 # Copyright (c) 2021-2025 Liviu Ionescu. All rights reserved.
 #
 # Permission to use, copy, modify, and/or distribute this software
@@ -13,110 +11,138 @@
 #
 # -----------------------------------------------------------------------------
 
-# https://help.github.com/en/actions
-# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+# Promote the five per-host archives staged at the `embedder-staging`
+# pre-release into a real `v<version>` release.
+#
+# Upstream gathered the binaries from a separate `pre-releases` repository
+# using xbb-helper's download-all-binaries.sh. That script hardcodes the
+# xpack-dev-tools URL, so this workflow stages within this same repository
+# and gathers with `gh release download` instead.
+#
+# The release is created as a DRAFT on purpose. Embedder downloads these
+# assets anonymously at runtime, and a draft's assets are not publicly
+# readable -- publishing is the deliberate act that makes a build live.
 
-# https://docs.github.com/en/actions/reference/events-that-trigger-workflows#workflow_dispatch
-# https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch
-# https://docs.github.com/en/rest/reference/actions#create-a-workflow-dispatch-event
-
-# https://github.com/actions/checkout
-# https://github.com/actions/upload-artifact
-# https://github.com/actions/download-artifact
-
-# -----------------------------------------------------------------------------
-
-
-
-
-name: 'Publish the xPack OpenOCD release'
+name: 'Publish the Embedder OpenOCD release'
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'The semver of the release'
+        description: 'The release version, e.g. 0.12.0-8 (blank reads build-assets/scripts/VERSION)'
         required: false
-        default: 'current'
-      helper-git-ref:
-        description: 'The helper branch, tag or SHA to checkout'
-        required: false
-        default: 'xpack-development'
+        type: string
+        default: ''
 
 jobs:
   create-release:
-    name: 'Create the pre-release'
+    name: 'Publish the release'
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
 
     steps:
-      - name: 'Show environment'
-        run: |
-          uname -a
-          lsb_release -sd
-          echo "whoami: $(whoami)"
-          echo "pwd: $(pwd)"
-          ls -lLA
-          env | sort | grep -E '^[^ \t]+='
-
-      # https://github.com/actions/checkout
       - name: 'Checkout project'
         uses: actions/checkout@v5
         with:
           fetch-depth: 3
 
-      - name: 'Checkout helper ${{github.event.inputs.helper-git-ref}}'
-        uses: actions/checkout@v5
-        with:
-          repository: xpack-dev-tools/xbb-helper-xpack
-          path: build-assets/xpacks/@xpack-dev-tools/xbb-helper
-          ref: ${{github.event.inputs.helper-git-ref}}
-          fetch-depth: 3
+      - name: 'Resolve version'
+        id: version
+        run: |
+          version='${{github.event.inputs.version}}'
+          if [ -z "${version}" ]
+          then
+            version="$(cat build-assets/scripts/VERSION)"
+          fi
+          echo "Releasing version ${version}"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+
+      - name: 'Gather the staged binaries'
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          mkdir -pv ~/binaries
+          gh release download embedder-staging \
+            --repo "${GITHUB_REPOSITORY}" \
+            --dir ~/binaries \
+            --pattern '*'
+          ls -l ~/binaries
+
+      - name: 'Verify all five hosts are present and intact'
+        run: |
+          cd ~/binaries
+          version='${{steps.version.outputs.version}}'
+          expected=(
+            "embedder-openocd-${version}-darwin-arm64.tar.gz"
+            "embedder-openocd-${version}-darwin-x64.tar.gz"
+            "embedder-openocd-${version}-linux-arm64.tar.gz"
+            "embedder-openocd-${version}-linux-x64.tar.gz"
+            "embedder-openocd-${version}-win32-x64.zip"
+          )
+          missing=0
+          for name in "${expected[@]}"
+          do
+            if [ ! -f "${name}" ]
+            then
+              echo "MISSING: ${name}"
+              missing=1
+            fi
+          done
+          if [ "${missing}" != "0" ]
+          then
+            echo "Refusing to publish a partial release."
+            echo "Dispatch the missing build-<host>.yml workflow and re-run."
+            exit 1
+          fi
+          # The build writes a .sha next to each archive; a mismatch here means
+          # a truncated upload, which would otherwise reach users as a checksum
+          # failure at install time.
+          for sha in *.sha
+          do
+            echo "Checking ${sha}"
+            sha256sum -c "${sha}"
+          done
+          echo
+          echo "The sha256 values below go into the Embedder manifest:"
+          cat *.sha
 
       - name: 'Create body'
         run: |
-          ls -lLA
           npm --prefix build-assets install -dd
-          ./build-assets/node_modules/.bin/liquidjs --context '{ "releaseVersion": "${{github.event.inputs.version}}" }' --template @build-assets/templates/body-github-release-liquid.md --output .github/workflows/body-github-release.md
+          ./build-assets/node_modules/.bin/liquidjs \
+            --context '{ "releaseVersion": "${{steps.version.outputs.version}}" }' \
+            --template @build-assets/templates/body-github-release-liquid.md \
+            --output .github/workflows/body-github-release.md
           cat .github/workflows/body-github-release.md
 
-      - name: 'Publish release'
-        # https://github.com/ncipollo/release-action
-        uses: ncipollo/release-action@v1.14.0
-        with:
-          allowUpdates: false
-          bodyFile: '.github/workflows/body-github-release.md'
-          commit: 'xpack-development'
-          draft: true
-          name: 'xPack OpenOCD v${{github.event.inputs.version}}'
-          omitBodyDuringUpdate: true
-          omitDraftDuringUpdate: true
-          omitNameDuringUpdate: true
-          omitPrereleaseDuringUpdate: true
-          owner: 'xpack-dev-tools'
-          prerelease: true
-          replacesArtifacts: false
-          repo: 'openocd-xpack'
-          tag: 'v${{github.event.inputs.version}}'
-          token: ${{secrets.PUBLISH_TOKEN}}
-
-      - name: 'Gather artifacts'
-        run: 'bash build-assets/xpacks/@xpack-dev-tools/xbb-helper/github-actions/download-all-binaries.sh'
-
-      - name: 'Publish artifacts'
+      - name: 'Publish draft release'
         # https://github.com/ncipollo/release-action
         uses: ncipollo/release-action@v1.14.0
         with:
           allowUpdates: true
-          artifacts: '~/Downloads/xpack-binaries/openocd/*'
-          commit: 'xpack-development'
+          artifacts: '~/binaries/*'
+          bodyFile: '.github/workflows/body-github-release.md'
+          commit: 'embedder/mainline'
           draft: true
+          name: 'Embedder OpenOCD v${{steps.version.outputs.version}}'
           omitBodyDuringUpdate: true
           omitDraftDuringUpdate: true
           omitNameDuringUpdate: true
           omitPrereleaseDuringUpdate: true
-          owner: 'xpack-dev-tools'
-          prerelease: true
-          replacesArtifacts: false
-          repo: 'openocd-xpack'
-          tag: 'v${{github.event.inputs.version}}'
-          token: ${{secrets.PUBLISH_TOKEN}}
+          prerelease: false
+          replacesArtifacts: true
+          tag: 'v${{steps.version.outputs.version}}'
+          token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: 'Next steps'
+        run: |
+          echo "Draft release v${{steps.version.outputs.version}} created."
+          echo
+          echo "Its assets are NOT publicly downloadable until the release is"
+          echo "published. Before publishing:"
+          echo "  1. Check each archive's bin/openocd --version reports the"
+          echo "     expected upstream commit."
+          echo "  2. Update the Embedder manifest, install.sh and install.ps1"
+          echo "     with the sha256 values printed above."
+          echo "  3. Publish the release, then verify one anonymous download."

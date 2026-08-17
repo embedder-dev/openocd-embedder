@@ -1,7 +1,0 @@
-Sitemap: https://xpack-dev-tools.github.io/openocd-xpack/sitemap.xml
-
-User-agent: *
-Disallow: /openocd-xpack/blog/archive/
-Disallow: /openocd-xpack/blog/authors/
-Disallow: /openocd-xpack/blog/page/
-Disallow: /openocd-xpack/blog/tags/
