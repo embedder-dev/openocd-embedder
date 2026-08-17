@@ -69,7 +69,7 @@ function openocd_build()
       ) 2>&1 | tee "${XBB_LOGS_FOLDER_PATH}/${openocd_folder_name}/configure-output-$(ndate).txt"
 
       # Personalise the greeting message
-      run_verbose sed -i.bak -e 's|"Open On-Chip Debugger "|"xPack Open On-Chip Debugger "|' "src/openocd.c"
+      run_verbose sed -i.bak -e 's|"Open On-Chip Debugger "|"Embedder Open On-Chip Debugger "|' "src/openocd.c"
 
       run_verbose diff "src/openocd.c.bak" "src/openocd.c" || true
 
@@ -167,10 +167,14 @@ function openocd_build()
           # Add explicit functionality.
           config_options+=("--enable-aice")
           config_options+=("--enable-armjtagew")
+          # New in mainline after the 0.12.0-7 snapshot; older commits ignore
+          # them with an "unrecognized option" warning.
+          config_options+=("--enable-cklink")
           config_options+=("--enable-cmsis-dap")
           config_options+=("--enable-dummy")
           config_options+=("--enable-ft232r")
           config_options+=("--enable-ftdi")
+          config_options+=("--enable-ftdi-cjtag")
           config_options+=("--enable-jlink")
           config_options+=("--enable-jtag_vpi")
           config_options+=("--enable-kitprog")
@@ -190,6 +194,8 @@ function openocd_build()
           config_options+=("--enable-usbprog")
           config_options+=("--enable-vsllink")
           config_options+=("--enable-xds110")
+          # Xilinx XVC over TCP; also new in mainline after -7.
+          config_options+=("--enable-xvc")
 
           # Disable drivers that apparently failed to build on all platforms.
           config_options+=("--disable-zy1000-master")
