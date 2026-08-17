@@ -106,6 +106,43 @@ jobs:
         with:
           fetch-depth: 3
 
+      - name: 'Prime the GNU download cache'
+        # xbb-helper hardcodes ftpmirror.gnu.org, a redirector that goes down
+        # (502/connection refused) while the canonical ftp.gnu.org stays up,
+        # and xPack's backup mirror does not carry these five archives -- it
+        # 404s, so the fallback cannot save the build. download.sh skips the
+        # fetch entirely when the archive is already in the cache, and that
+        # cache is bind-mounted into the Docker builds, so priming it here
+        # covers every host. Best-effort: if this cannot fetch, the build
+        # still tries its own mirrors.
+        run: |
+          mkdir -pv "${HOME}/Work/cache"
+          for spec in \
+            'autoconf/autoconf-2.72.tar.xz' \
+            'automake/automake-1.16.5.tar.xz' \
+            'libiconv/libiconv-1.18.tar.gz' \
+            'libtool/libtool-2.4.7.tar.xz' \
+            'texinfo/texinfo-7.2.tar.gz'
+          do
+            name="$(basename "${spec}")"
+            target="${HOME}/Work/cache/${name}"
+            if [ -f "${target}" ]
+            then
+              echo "already cached: ${name}"
+              continue
+            fi
+            if curl --fail --location --silent --show-error \
+                 --output "${target}.priming" \
+                 "https://ftp.gnu.org/gnu/${spec}"
+            then
+              mv -f "${target}.priming" "${target}"
+              echo "primed: ${name}"
+            else
+              rm -f "${target}.priming"
+              echo "could not prime ${name}; the build will try its own mirrors"
+            fi
+          done
+
       - name: 'Build linux-arm64 binaries'
         timeout-minutes: 1440
         run: |
