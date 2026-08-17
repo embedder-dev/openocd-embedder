@@ -25,7 +25,8 @@ Each archive is accompanied by a `.sha` file carrying its SHA-256.
 
 OpenOCD is free software under the **GNU General Public License, version 2
 or later**; the full text ships inside each archive at
-`distro-info/licenses/openocd-0.12.0/COPYING`.
+`distro-info/licenses/openocd-0.12.0/preferred/GPL-2.0`, alongside the
+upstream `COPYING` that names it.
 
 These are **modified** builds: the startup greeting is rebranded and the
 configure options differ from an upstream build. The corresponding source is

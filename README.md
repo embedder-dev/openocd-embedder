@@ -62,7 +62,8 @@ caching traps that make a re-pin silently ship the wrong OpenOCD.
 
 OpenOCD is free software under the **GNU General Public License, version 2 or
 later**. The full text ships inside every archive at
-`distro-info/licenses/openocd-0.12.0/COPYING`.
+`distro-info/licenses/openocd-0.12.0/preferred/GPL-2.0`, alongside the
+upstream `COPYING` that names it.
 
 The binaries published here are **modified** builds of OpenOCD, as described
 above. Their corresponding source is the upstream OpenOCD commit pinned in

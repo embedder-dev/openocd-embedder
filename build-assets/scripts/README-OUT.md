@@ -16,7 +16,8 @@ OpenOCD commit, and the list of changes are public at:
 
 OpenOCD is free software licensed under the **GNU General Public License,
 version 2 or later**. The full license text ships with this distribution at
-`distro-info/licenses/openocd-0.12.0/COPYING`.
+`distro-info/licenses/openocd-0.12.0/preferred/GPL-2.0`, alongside the
+upstream `COPYING` that names it.
 
 This binary is a **modified** build of OpenOCD: the startup greeting is
 rebranded and the configure options differ from an upstream build. The
